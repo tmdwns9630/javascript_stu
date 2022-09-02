@@ -95,7 +95,7 @@ for (const data of arr){
 
 let 시 = 16;
 let 분 = 59;
-let 초 = 50;
+let 초 = 51;
 
 
 const timeID = setInterval(() => {
@@ -103,9 +103,11 @@ const timeID = setInterval(() => {
    console.log(
     `${시.toString().padStart(2,"0")}:${분.toString().padStart(2,"0")}:${초.toString().padStart(2,"0")}`) ;
    
-    document.getElementById("hour").innerText = 시;
-    document.getElementById("min").innerText = 분;
-    document.getElementById("sec").innerText = 초;
+    // document.getElementById("hour").innerText = 시;
+    // document.getElementById("min").innerText = 분;
+    // document.getElementById("sec").innerText = 초;
+    document.querySelector(".hour").inner
+
 
    초++;
    if(60 <= 초){
