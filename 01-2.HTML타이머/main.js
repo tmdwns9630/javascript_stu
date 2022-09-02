@@ -106,7 +106,9 @@ const timeID = setInterval(() => {
     // document.getElementById("hour").innerText = 시;
     // document.getElementById("min").innerText = 분;
     // document.getElementById("sec").innerText = 초;
-    document.querySelector(".hour").inner
+    document.querySelector(".hour").innerText = 시;
+    document.querySelector(".min").innerText = 분;
+    document.querySelector(".sec").innerText = 초;
 
 
    초++;
