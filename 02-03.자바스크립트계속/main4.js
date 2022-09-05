@@ -104,3 +104,17 @@ console.log(arr);
 
 arr.reverse(arr);
 console.log(arr);
+
+//예외처리
+//try에서 실행된 내용 중에 예외 조건에 해당되는게 나오면 catch로 가고
+//예외가 있던 없던 finally를 실행함.
+
+const val=100;
+val = 150;
+try{
+    val=200
+}catch(err){
+
+}finally{
+    console.log(`finally문 : ${val}`)
+}
