@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        body { color:whitesmoke; }  
-    </style>
-    
-    <title>2주차 4일차 수업</title>
-    <!-- <script  src="main3.js"></script> -->
-    <script src = "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-    <script>
-        console.log("=============================================================");
+console.log("LODASH 자바스크립트 라이브러리 실습");
         //const _ = "선문대학교";
         console.log(_);
 
@@ -64,12 +53,7 @@
         const resultbyblog = _.orderBy(users, ['user', 'age'], ['asc', 'desc']);
         console.log(resultbyblog);
         // [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+
+        //_.orderBy(정렬할 배열, ['정렬기준1','정렬기준2'],
+        //['정렬기준1의 오름내림차순','정렬기준2의 오름내림차순'])
         //asd : 오름차순, desc : 내림차순
-    </script>
-</head>
-<body bgcolor="black">
-    <H1>
-       2022-09-06 화 Object 실습
-    </H1>
-</body>
-</html>
