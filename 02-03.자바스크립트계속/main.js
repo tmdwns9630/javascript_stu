@@ -1,6 +1,5 @@
 console.log("라이브 서버 작동중")
 
-
 function main(){
     console.log("함수 내부입니다.");
     console.log("함수 내부입니다.");
