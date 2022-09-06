@@ -9,62 +9,7 @@
     <!-- <script  src="main3.js"></script> -->
     <script src = "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script>
-        console.log("=============================================================");
-        //const _ = "선문대학교";
-        console.log(_);
-
-            const products = [
-                {
-                    제품명 : "탐사수",
-                    가격 : 500,
-                    무게 : 50,
-                },
-                {
-                    제품명 : "화장지",
-                    가격 : 250,
-                    무게 : 10,
-                },
-                {
-                    제품명 : "모니터",
-                    가격 : 100000,
-                    무게 : 200,
-                },
-                {
-                    제품명 : "마우스",
-                    가격 : 12000,
-                    무게 : 40,
-                },
-        ];
-        const result = _.sortBy(products,["가격"]);
-        console.log(result);
-        const result2 = _.sortBy(products,["무게"]);
-        console.log(result2);
-
-        const result3 = _.sortBy(products,["가격","무게"]);
-        console.log(result3);
-
-        const result4 = _.reverse(products);
-        console.log(result4);
-
-        const result5 = _.orderBy(products, ["가격","무게","desc","asc"]);
-        console.log(result5);
-
-        var users = [
-
-            { 'user': 'fred',   'age': 48 },
-
-            { 'user': 'barney', 'age': 34 },
-
-            { 'user': 'fred',   'age': 40 },
-
-            { 'user': 'barney', 'age': 36 }
-
-        ];
-
-        const resultbyblog = _.orderBy(users, ['user', 'age'], ['asc', 'desc']);
-        console.log(resultbyblog);
-        // [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
-        //asd : 오름차순, desc : 내림차순
+        
     </script>
 </head>
 <body bgcolor="black">
