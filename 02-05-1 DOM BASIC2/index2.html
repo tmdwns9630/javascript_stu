@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        //HTML의 로딩 종료되는 시점에 동작한다.
+       /*
+        document.addEventListener("DOMContentLoaded", ()=>{
+            console.log("로딩등");
+
+            const sm = document.querySelector(".sunmoon");
+            sm.textContent = "헤일 하이드라";
+            console.log(sm.className);
+            sm.className = "asan";
+            console.log(sm.className);
+
+            console.log(sunmoon.classList);
+
+        });
+        
+        document.addEventListener("DOMContentLoaded", ()=>{
+            console.log("로딩등");
+
+            const eleImage = document.querySelector(".cover");
+            console.log(eleImage);
+
+            eleImage.setAttribute(
+                "src",
+                "http://placekitten.com/g/200/300"
+
+            );
+
+            const attr = eleImage.getAttribute("src");
+            console.log(`src 속성값 : ${attr}`);
+
+            const coverList = document.querySelectorAll("m.cover");
+            console.log(coverList);
+
+            const arr=["a","b","c","d"];
+            arr.forEach((item,idx)=>{
+                console.log(`${idx}번째의 값은 ${item}`);
+            })
+        });
+        //이미지 태그 바꾸는 부분에서 놓쳤다.
+        //인생
+        */
+        document.addEventListener("DOMContentLoaded", ()=>{
+            const rects = document.querySelectorAll(`.rect`);
+
+            rects.forEach((rect,index) =>{
+                const width =(index+1) *100
+                const src =`http://placekitten.com/g/${width}/300`
+                rect.setAttribute('src',src);
+            })
+        
+        });
+
+    </script>
+    <title>2주5일차 2 오후1</title>
+        
+    <style>
+        div{
+            font-weight: bold;
+        }
+
+        /*클래스 선택자 .class*/
+        .sunmoon{
+            color: red;
+        }
+        .sun{
+            color:red;
+        }
+
+        /*아이디 선택자 : #id*/
+        #sun{
+            color: blue;
+        }
+
+        #container{
+            background-color: aqua;
+        }
+
+        /*후손 선택자 : 부모선택자_A"공백"자식선택자_B*/
+        #container span {
+            font-weight: bolder;
+        }
+
+        #container #moon {
+            border:solid salmon;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        #container .sun{
+            border:solid blueviolet;
+            margin: auto;
+            padding: auto;
+        }
+
+
+    </style>
+
+    
+
+</head>
+<body>
+    <img class = "rect" src="" alt="">
+    <img class = "rect" src="" alt="">
+    <img class = "rect" src="" alt="">
+    <img class = "rect" src="" alt="">
+    <img class = "rect" src="" alt="">
+
+</body>
+</html>

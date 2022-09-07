@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            //document.body.innerText = "hello";
+            //이건 String으로 dom에 추가한 것.
+        
+        const newH1 = document.createElement("h1");
+        const newH2 = document.createElement("h1");
+        
+        console.log(newH1);
+        console.log(typeof(newH1)); //object
+
+        newH1.textContent = "새로 만든 DIV입니다."
+        newH2.textContent = "새로 만든 DIV입니다."
+        //여기까지는 객체 생성까지만 된 것이고, 이걸 보여주는 않았다.
+
+        document.body.appendChild(newH1);
+       //         
+        const newNewH1 = newH1;
+        //이거는 주소값만 복사하는 얕은 복사, 결국 newnew랑 new는 같은 값이다.
+        const JinNewNewH1 = newH1.cloneNode(newH1);
+        
+        
+        const two = document.querySelector('#two');
+        //two.textContent = '키보토스행은 어디냐'
+        
+        //newH1은 결국 객체다. 그러니 객체의 메서드인 appendChild를 쓸 수 있다.
+        two.appendChild(newH2);
+        //(html)태크 == (자바스크립트)element 객체
+
+        });
+    </script>
+    <title>2주5일차 4 오후3</title>
+    <body>
+        <div class = "container">
+            <div id ="one">1</div>
+            <div id ="two">2</div>
+            <div id ="three">3</div>
+        </div>
+        
+    </body>
+    </html>
+</head>

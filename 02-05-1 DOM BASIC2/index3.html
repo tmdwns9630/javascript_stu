@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        const 콜백함수 =(item, 배열의인덱스,진체배열) =>{
+            const val = 배열의인덱스 * 10;
+            item.style.height = `20px`;
+            item.style.width = `500px`;
+            item.style.backgroundColor = `rgba(${val},${val},${val})`;
+        }
+    </script>
+
+    <script>
+        //교재 318p
+        /*
+        document.addEventListener('DOMContentLoaded', () =>{
+            const divArr = document.querySelectorAll( 'body > div')
+            //body>div는 body 자식으로 있는  div 태그를  직계 자손만 선택함.
+            //body div로 할 경우 body 밑의 모든 div를 선택하고,
+
+            divArr.forEach((thisdiv,index) => {
+                console.log(thisdiv, index)
+                const val = index *10
+                thisdiv.style.height = `10px`;
+                thisdiv.style.backgroundColor = `rgba(${val},${val},${val})`;
+            })
+            //css style 또한 html 태그의 속성이므로 자바스크립트로 접근할 수 있다.
+        })
+        */
+        document.addEventListener('DOMContentLoaded', () =>{
+           const DIV목록 = document.querySelectorAll("div");
+           DIV목록.forEach(콜백함수);
+        })
+    </script>
+    <title>2주5일차 3 오후2</title>
+        
+    <style>
+        
+
+
+    </style>
+
+    
+
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+</body>
+</html>

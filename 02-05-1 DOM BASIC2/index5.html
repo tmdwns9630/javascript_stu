@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .divELE{
+            cursor: default;
+        }
+    </style>
+    <script>
+/*
+            document.addEventListener('DOMContentLoaded', () =>{
+            const 삭제할요소 = document.querySelector("#two");
+            console.log(삭제할요소);
+
+            const 부모 = 삭제할요소.parentNode;
+            부모.removeChild(삭제할요소);
+            
+
+            요소를 삭제할 방법이 특정 태크의 .remove child가 있는데
+            자기 자식을 삭제하는 방법이다.
+            삭제하고 싶은 녀석을 선택하여 부모를 찾는다.
+            부모에 removechild 메서도로 다시 자식을 선택하여 삭제한다.
+*/  
+        document.addEventListener('DOMContentLoaded', () =>{
+            const 원 = document.querySelector("#one");
+            const 투 = document.querySelector("#two");
+            const 쓰리 = document.querySelector("#three");
+            const 디버그 = document.querySelector("#debug");
+            
+            const 원클릭이벤트 =()=>{
+                console.log("원 클릭");
+                디버그.textContent = "원클릭(이)가 DOM에 반영되었다."
+            }
+            //이벤트리스너("시동동작","콜백함수");
+            원.addEventListener("click",원클릭이벤트);
+
+            투.addEventListener("click",()=>{
+                console.log("투 클릭");
+                디버그.textContent = "투클릭(이)가 DOM에 반영되었다."
+            })
+
+            쓰리.addEventListener("click",()=>{
+                console.log("쓰리 클릭");
+                디버그.textContent = "쓰리클릭(이)가 DOM에 반영되었다."
+            })
+
+            디버그.addEventListener("click",()=>{
+                console.log("디버그 클릭");
+                디버그.textContent = "Drink!"
+            })
+
+            //이벤트 제거하기
+            //문서 객체.removeEventListener('"지울 이벤트"'',"콜백함수")
+            /*
+            콜백함수는 지울 이벤트와 같은 함수를 써야한다.
+            같은 내용의 익명 함수는 같은 함수가 아니다.
+            함수를 따로 밖에서 정의해주고 같은 함수를 넣어야 한다.
+            */
+            원.removeEventListener("click",원클릭이벤트)
+
+        });
+    </script>
+    <title>2주5일차 5 오후4</title>
+    <body>
+        <div class = "container">
+            <div id ="one" class = "divELE">퍼스트</div>
+            <div id ="two" class = "divELE">세컨드</div>
+            <div id ="three" class = "divELE">써드</div>
+            <div id="debug">디버그 문자</div>
+        </div>
+        
+    </body>
+    </html>
+</head>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2주5일차 1 -오전1</title>
+        <!--
+        1. 클래스 선택자 - .class #id tag 
+        2. 선택자 지정자1- 
+        3. 선택자 지정자2 - CSS Selector(querySelector)
+        4.이벤트 리스너
+        -->
+    <style>
+        div{
+            font-weight: bold;
+        }
+
+        /*클래스 선택자 .class*/
+        .sunmoon{
+            color: red;
+        }
+        .sun{
+            color:red;
+        }
+
+        /*아이디 선택자 : #id*/
+        #sun{
+            color: blue;
+        }
+
+        #container{
+            background-color: aqua;
+        }
+
+        /*후손 선택자 : 부모선택자_A"공백"자식선택자_B*/
+        #container span {
+            font-weight: bolder;
+        }
+
+        #container #moon {
+            border:solid salmon;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        #container .sun{
+            border:solid blueviolet;
+            margin: auto;
+            padding: auto;
+        }
+
+
+    </style>
+
+    
+
+</head>
+<body>
+    <div class="sunmoon">DIV 태그</div>
+    
+    <div id="container">
+        <span name="first">안</span>
+        <span id="sun" name="second">녕</span>
+        <span id="moon">하</span>
+        <span class="sun">세</span>
+        <span>요</span>
+        <span class="sun">세</span>
+        <span class="sun">세</span>
+        <span class="sun">세</span><span class="sun">세</span>
+    </div>
+
+
+    <script>
+        /*
+        console.log("Class Start");
+
+        const word= document.getElementById("moon"); //id 지정
+        console.log(word.innerText);
+        console.log(word.textContent); //요즘은 innerText는 잘 안쓰고 textContent을 많이 쓴다.
+    
+        const result2 = document.getElementsByClassName("sun");//HTMLCollection이라는 객체 배열 반환
+        console.log(result2);
+        console.log(result2.length);
+        console.log(result2[3]);
+
+        const result3 = document.getElementsByTagName("span");//태그이름으로검색, 객체 배열 반환
+        console.log(result3[0].textContent);
+
+        const result4 = document.getElementsByName("first");
+        console.log(result4[0].textContent);
+
+        //사실 이거 잘 안쓰고 CSS 셀렉터로 가져온다??? 그럼 왜 했...
+        //---------------------------------------------------------------------
+        */
+        /*
+        //CSS Selector로 선택자 다중 선택.
+        const sun = document.querySelector("#container .sun");//아이디, 클래스
+        console.log(sun);
+
+        const suns = document.querySelectorAll(".sun");
+        console.log(suns);        
+        
+        //콤마로 구분하면 같이 검색함.
+        const suns2 = document.querySelectorAll("div,span,.sun");
+        console.log(suns2);        
+        
+        //----------------------------------------------------------------------
+        */
+
+        const div = document.querySelector(".sunmoon");
+        console.log(div);
+        //ㅁㅁㅁ 이벤트 리스너 ㅁㅁㅁㅁ
+        //마우스 클릭, 키보드 입력 등등의 모든 사용자가 행하는 동작을 이벤트라고 한다.
+        //웹에서는 이 이벤트를 인식하여 액션을 취한다.
+        //인터럽터, 외부의 예상치 못한 행동, 예외 상황 등을 감지한다.
+        //이걸 이벤트 리스너라고 한다.
+    
+        console.log(typeof document); //object 타입.
+       // document.addEventListener();
+        //도큐먼트라는 오브젝트, html 문서 자체를 하나의 객체로 보고 그게 도큐멘트
+        //도큐먼트라는 객체가 가진 속성, 메서드 중 하나의 메서드인 addEventListener는
+        //이벤트가 발생했을 때 동작을 구분하여 등록할 수 있는 메서드다.
+        //도큐먼트를 대상으로 이벤트를 등록하겠다.
+        //div.addEventListener();
+        //div 변수를 타켓으로 이벤트를 체크하겠다.
+
+        //addEventListener의 이벤트를 수신할 객체, 함수여야한다.
+        //function listener() {}
+        //const listener = () => {};
+
+        let a = 0;
+        document.addEventListener("dblclick", () =>{
+            a++;
+            console.log(`${a}번째 더블클릭됨.`);
+        });
+
+        //마우스 버튼을 눌렸을 때 따로, 버튼을 뗐을 때 따로 이벤트 처리.
+        let b = 0;
+        document.addEventListener("mousedown", () =>{
+            b++;
+            console.log(`${b}번째 클릭다운.`);
+        });
+
+        let c = 0;
+        document.addEventListener("mouseup", () =>{
+            c++;
+            console.log(`${b}번째 클릭업.`);
+        });
+    </script>
+</body>
+</html>

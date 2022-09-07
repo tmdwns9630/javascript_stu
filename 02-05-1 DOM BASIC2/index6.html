@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .divELE{
+            cursor: default;
+        }
+
+        div{
+            font-size: 30px;
+            font-weight: 900;
+            
+            
+            width : 150px
+        
+        }
+
+        #target{
+            display: inline;
+            border-radius: 1pc;
+            border:black 3px solid ;
+            background: gray;
+            color: whitesmoke;
+            margin: 3px;
+            cursor: default;
+        }
+        #target:hover{
+            background-color: rgb(37, 36, 36);
+        }
+
+        button{
+            font-weight: bolder;
+            color: aliceblue;
+        }
+
+        .connect{
+            background: rgb(16, 199, 16);
+        }
+        .disconnect{
+            background: red;
+        }
+    </style>
+    <script>
+/*
+        
+*/  
+        document.addEventListener('DOMContentLoaded', () =>{
+            const 연결버튼 = document.querySelector(".connect");
+            const 해제버튼 = document.querySelector(".disconnect");
+            const 상태메시지 = document.querySelector("#state");
+
+            const 클릭미 = document.querySelector("#target");
+            const 클릭카운트 = document.querySelector("#count");
+
+
+            let 현재상태 = false;
+            let 클릭넘버 = 0;
+            연결버튼.addEventListener("click", () =>{
+                현재상태 = true;
+                상태메시지.textContent = "연결됨 👍"+현재상태;
+            })
+
+            해제버튼.addEventListener("click", () =>{
+                현재상태 = false;
+                상태메시지.textContent = "해제됨 🤔"+현재상태;
+            })
+
+            클릭미.addEventListener("click", () =>{
+                if(현재상태 === true){
+                    클릭넘버++;
+                }
+                클릭카운트.textContent = 클릭넘버;
+            })
+
+            
+            
+        });
+
+
+
+    </script>
+    <!--
+        CLick ME를 클릭하면 Click Count에서 클릭할 때마다 숫자가 올라가게 하라
+        connect 버튼을 눌렀을 때만 되게 하고
+        disconnect 버튼을 누르면 안되게 하라.
+    -->
+    <title>2주5일차 6 오후5</title>
+    <body>
+        <div id="target"> Click Me! </div>
+        <div> Click Count : 
+            <span id="count">0</span>
+        </div>
+            <button class="connect">이벤트 연결</button>
+        <button class="disconnect">이벤트 삭제</button>
+
+        <p>이벤트 연결 상태 : 
+            <span id="state">대기 중</span>
+        </p>
+    </body>
+    </html>
+</head>

@@ -1,0 +1,89 @@
+<!--키보드 이벤트 연습-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        body{
+            position: relative;
+        }
+        div{
+            font-size:100px;
+        }
+        /* 포지션에서 absoulte를 쓰려면 그 윗 조상이 relative이어야 한다.*/
+        #avatar{
+            background-color: red;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            const 아바타 = document.querySelector("#avatar");
+            
+            아바타.addEventListener("click",()=>{
+                console.log("수신 양호");
+            })
+
+            //문서 전체에서 감지해야하므로, 도큐먼트에 메서드를 쓰자.
+            //키보드의 버튼 수가 많은만큼, 마우스와 동작방식이 좀 다르다.
+            //비어둔 인자에 이벤트를 넣고 그 이벤트의 내용을 메서드로 해석한다.
+            //방향키의 경우 case문으로 만드는게 편리하다.
+
+            //아이콘을 움직이게 하기 위해 좌표 개념을 알아보자.
+            //ㄴ css position
+            
+            let x = 0;
+            let y = 0;
+            const speed = 10;
+            document.addEventListener("keydown",(이벤트)=>{
+                //console.log("키보드 수신 양호");
+                //console.log(이벤트.key);
+                //console.log(이벤트.keyCode);
+                //console.log(이벤트.charCode);
+                //if(이벤트.key == "ArrowLeft") console.log("왼쪽 키 누름");
+                console.log(x)
+                console.log(y)
+                
+                switch(이벤트.key){
+                    case "ArrowUp":
+                    console.log("Up");
+                    y -=speed;
+                    break;
+
+                    case "ArrowDown":
+                    console.log("ArrowDown");
+                    y +=speed;
+                    break;
+
+                    case "ArrowLeft":
+                    console.log("ArrowLeft");
+                    x-=speed;    
+                    break;
+
+                    case "ArrowRight":
+                    console.log("ArrowRight");    
+                    x+=speed;
+                            break;
+                }
+                아바타.style.top=`${y}px`;
+                아바타.style.left=`${x}px`;
+
+            })
+        });
+
+
+
+    </script>
+   
+    <title>2주5일차 7 오후6</title>
+    <body>
+        <div id = "avatar">🤔</div>
+    </body>
+    </html>
+</head>
