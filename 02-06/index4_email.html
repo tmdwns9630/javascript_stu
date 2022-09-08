@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2주 6일차 수업4 - 오전</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const txt = document.querySelector('.email');
+        const btn = document.querySelector('#submit');
+        const errTxt = document.querySelector('.error');
+
+        //input 텍스트의 입력값을 가져올 떄는 .value다.
+        //콘솔.로그로 활용값을 계속 출력하게 만들어서 지속적으로 체크하자.
+        btn.addEventListener('click', () => {
+          console.log(txt.value);
+          console.log(txt.value.length);
+          console.log(txt.value[2]);
+          console.log(txt.value[txt.value.length - 1]);
+          if (txt.value.indexOf('@') > 0 && txt.value.indexOf('.') > 0) {
+            console.log('이메일 형식입니다');
+            errTxt.textContent = '이메일 형식입니다.';
+          } else if (txt.value[txt.value.length - 1] === '.') {
+            console.log('점이 맨 끝에 있습니다.');
+            errTxt.textContent = '점이 맨 끝에 있습니다.';
+          } else {
+            console.log('이메일 형식이 아닙니다..');
+            errTxt.textContent = '이메일 형식이 아닙니다.';
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>6일차 수업4</h1>
+    <h2>텍스트박스에 이메일 형식만 들어가게 만들자</h2>
+    <div>키워드 : indexOf</div>
+    <div>
+      <input type="text" class="email" placeholder="example@goham.com" />
+      <button id="submit">로그인</button>
+    </div>
+    <div>오류메시지 : <span class="error">대기중 </span></div>
+  </body>
+</html>

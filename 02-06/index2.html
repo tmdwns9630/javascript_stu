@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2주 6일차 수업2 - 오전</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const id = document.querySelector('#id');
+        const pw = document.querySelector('#pw');
+        const submit = document.querySelector('#submit');
+        //console.log(typeof id);
+
+        submit.addEventListener('click', () => {
+          const 입력된ID = id.value;
+          const 입력된pw = pw.value;
+
+          // if (입력된ID) {
+          //   alert(`아이디 : ${입력된ID}`);
+          // } else {
+          //   console.log(`X 아이디를 입력하세요.;`);
+          // }
+
+          // if (입력된pw) {
+          //   alert(`비밀번호 : ${입력된pw}`);
+          // } else {
+          //   console.log(`X 비밀번호를 입력하세요.;`);
+          // }
+
+          if ((입력된ID, 입력된pw)) {
+            alert(`아이디 : ${입력된ID}\n비밀번호 : ${입력된pw}`);
+          } else if (입력된ID) {
+            console.log(`X 비밀번호를 입력하세요.;`);
+          } else if (입력된pw) {
+            console.log(`X 아이디를 입력하세요.;`);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="loginform">
+      <!-- <div><input type="text" placeholder="로그인 입력" id="id" /></div> -->
+      <textarea name="id" id="id"></textarea>
+      <div><input type="password" placeholder="비밀번호" id="pw" /></div>
+    </div>
+    <div></div>
+
+    <button id="submit">로그인</button>
+  </body>
+</html>

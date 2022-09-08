@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2주 6일차 수업1 - 오전</title>
+    <script>
+      /*
+      const testFn = (event2) => {
+        console.log(event2);
+      };
+
+      const 컨테이너 = document.querySelector('#container');
+      console.log(컨테이너);
+
+      컨테이너.style.color = 'red';
+      컨테이너.onclick = () => {
+        console.log('클릭됨 onclick.');
+      };
+
+      컨테이너.onclick = () => {
+        console.log('클릭됨 2');
+      };
+
+      컨테이너.addEventListener('click', () => {
+        console.log('클릭됨 addEventListener');
+      });
+
+      window.onload = () =>{
+        console.log('window.onload');
+      }
+      //예전 방식, 한번 동작으로 두가지 이상의 동작을 처리하는데 어렵다.
+      //on 붙은 메서드는 대부분 예전 방식.
+    */
+
+      //   document.onload = () => {
+      //     console.log('document 로딩');
+      //   };
+
+      //   window.onload = () => {
+      //     console.log('window 로딩');
+      //   };
+
+      //웹페이지의 로딩 중일 때 동작함?
+      //readystatechange 이벤트는 현재 페이지의 readyState 속성값이 변할 때 발생한다.
+      document.onreadystatechange = (event) => {
+        const 상태 = document.readyState;
+        console.log(상태);
+      };
+      //
+      //Document.readyState 속성을 통해 document의 로딩 상태를 확인할 수 있다.
+      console.log(document.readyState);
+
+      setTimeout(() => {
+        document.readyState = 'loading';
+        console.log(document.readyState);
+      }, 2000);
+    </script>
+  </head>
+  <body>
+    <div id="container" onclick="testFn(event)" style="border: 1px solid">
+      아잇tltvkf
+    </div>
+  </body>
+</html>

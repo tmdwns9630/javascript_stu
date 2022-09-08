@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2주 6일차 수업3 - 오전</title>
+    <script>
+      //331p
+      //키다운이벤트
+      document.addEventListener('DOMContentLoaded', () => {
+        const txt = document.querySelector('#txt');
+        const 키다운글자수 = document.querySelector('#word1');
+        const 체인지글자수 = document.querySelector('#word2');
+
+        // //키보드 입력과 메모리 업로드 사이의 시간 차 때문에 1카운트 차이? 난다??
+        // txt.addEventListener('keydown', (이벤트) => {
+        //   const 입력값 = txt.value;
+        //   console.log(입력값.length + '키다운');
+        //   키다운글자수.textContent = 입력값.length + 1;
+        // });
+
+        // //체인지는 왜 또  안먹히냐
+        // txt.addEventListener('change', (이벤트) => {
+        //   const 입력값 = txt.value;
+        //   console.log(입력값.length + '체인지');
+        //   체인지글자수.textContent = 입력값.length;
+        // });
+
+        //타이머 체크한다. 텍스트창이 포커스될 때만 타이머 돌게 한다.
+
+        let timerid = null;
+
+        txt.addEventListener('focus', () => {
+          if (null != timerid) {
+            timerid = setInterval(() => {
+              const 입력값 = txt.value;
+              console.log(입력값.length + '키다운');
+              키다운글자수.textContent = 입력값.length;
+            }, 10);
+          }
+        });
+
+        txt.addEventListener('blur', () => {
+          if (timerid) {
+            clearInterval(timerid);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>글자수 세기</h1>
+    <h2>
+      텍스트에리어에 다른 버튼을 누르지 않고 글자가 들어가자마자 체크되게 하자
+    </h2>
+    <textarea id="txt"></textarea>
+    <div>
+      글자수(keydown) :
+      <span id="word1">대기중</span>
+    </div>
+    <div>
+      글자수(change) :
+      <span id="word2">대기중</span>
+    </div>
+    <!-- <button>실행</button> -->
+  </body>
+</html>
