@@ -5,7 +5,8 @@
     <script>
       //예제 7-2-11,12.html : 이미지 우클릭 금지.
 
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('DOMContentLoaded', (event) => {
+        console.log(event);
         const imgs = document.querySelectorAll('img');
 
         imgs.forEach((img) => {

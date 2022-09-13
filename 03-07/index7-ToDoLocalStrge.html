@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3주 7일차 수업7 / 오후</title>
+  </head>
+  <body>
+    <h1>할 일 목록</h1>
+    <div>+로컬 스토리지</div>
+    <input type="text" id="todo" />
+    <button id="add-button">추가하기</button>
+    <div id="todo-list"></div>
+
+    <script>
+      //TodoList에 LocalStroage를 적용시켜서 웹페이지에 내용 저장하기
+      document.addEventListener('DOMContentLoaded', () => {
+        //1. 문서 객체 로드
+        const input = document.querySelector('#todo');
+        const todoList = document.querySelector('#todo-list');
+        const addButton = document.querySelector('#add-button');
+
+        const LocalTodo = localStorage.getItem('Localdata');
+
+        let keyCount = 0;
+        // removeTodo() 함수에서 사용
+
+        //2. Add Todo
+        const addTodo = () => {
+          if (input.value.trim() === '') {
+            alert('할 일을 입력해주세요.');
+            console.log('빈칸 처리 완료');
+            return;
+          } //빈 칸일 때 입력 안 받게 함.
+          //trim : 문자열의 앞 뒤의 공백을 모두 삭제.
+
+          //2-1. 생성할 객체 설정
+          const item = document.createElement('div');
+          const checkbox = document.createElement('input');
+          const text = document.createElement('span');
+          const button = document.createElement('button');
+
+          const key = keyCount;
+          keyCount += 1;
+
+          //2-2. item 객체 속성 설정, 추가
+          item.setAttribute('data-key', key); //데이터-키 속성에 key 값
+          //data-데이터명으로 쓰는 이유 : 웹페이지에 출력하진 않을건데 기록할 필요가 있을 경우.
+          item.appendChild(checkbox);
+          item.appendChild(text);
+          item.appendChild(button);
+          todoList.appendChild(item);
+          console.log(item);
+
+          //=======로컬 스토리지에 저장========================
+          let savedARR = [
+            `"data-key":"${key}"`,
+            `"checked":"${checkbox.target.checked}"`,
+            `"value":"${text}"`,
+          ];
+          //checkbox.target.checked : checkbox 부분에 event가 들어가야 한다라..
+
+          console.log(savedARR);
+
+          //JSON.stringify(item);
+          //console.log(JSON.stringify(item));
+          //localStorage.setItem('Localdata', item);
+
+          checkbox.type = 'checkbox';
+          checkbox.addEventListener('change', (event) => {
+            item.style.textDecoration = event.target.checked
+              ? 'line-through'
+              : '';
+          });
+          //CSS text-decoration 단축 속성은 텍스트에 장식용 선을 추가합니다.
+
+          text.textContent = input.value;
+
+          button.textContent = '제거하기';
+          button.addEventListener('click', () => {
+            removeTodo(key);
+          });
+
+          input.value = '';
+        };
+
+        //로컬 스토리지 저장
+        // const saveDataLocalStorage = (addTodo) => {};
+
+        const removeTodo = (key) => {
+          const item = document.querySelector(`[data-key="${key}"]`);
+          todoList.removeChild(item);
+        };
+
+        //버튼 누르면 추가.
+        addButton.addEventListener('click', addTodo);
+
+        //enter 키 눌러도 addTodo 호출.
+        input.addEventListener('click', (event) => {
+          const ENTER = 13;
+          if (event.keyCode === ENTER) {
+            addTodo();
+          }
+        });
+      }); //document.addEL
+    </script>
+  </body>
+</html>

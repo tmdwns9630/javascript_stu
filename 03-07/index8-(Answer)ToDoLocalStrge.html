@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3주 7일차 수업8 / 오후</title>
+  </head>
+  <body>
+    <h1>할 일 목록</h1>
+    <div>+로컬 스토리지</div>
+    <!--------------------------------->
+
+    <input type="text" id="todo-str" />
+    <button id="btn-add">추가하기</button>
+    <div id="todo-list"></div>
+
+    <script>
+      //TodoList에 LocalStroage를 적용시켜서 웹페이지에 내용 저장하기
+      //의 강사님 답안.
+      //난 데이터를 추출해서 객체로 저장하는 과정에서 탈락.
+      //console.log();
+      document.addEventListener('DOMContentLoaded', (event) => {
+        //console.log(event);
+
+        const eleTodo = document.querySelector('#todo-str'); //TODO 입력창
+        // console.log(eleTodo);
+        const eleBtnAdd = document.querySelector('#btn-add'); //TODO 버튼
+        // console.log(eleBtnAdd);
+        const eleTodoList = document.querySelector('#todo-list'); //TODO DIV
+        // console.log(eleTodoList);
+        //콘솔.로그로 계속해서 확인하여 확인사살을 해주자.
+
+        //하나의 배열에 로컬스토리지 세이브 데이터를 다 넣는다.
+        // localStorage.setItem('todoArr', '[{checked:true, val: 안녕}]');
+
+        //시작했을 때 temp에 null이 아닌 값이 존재하는 경우
+        //temp의 문자열을 객체로 만들어서 todoArr에 저장한다.
+
+        const temp = localStorage.getItem('todoArr');
+        let 할일목록배열 = temp ? JSON.parse(temp) : [];
+        // let todoArr = [];
+        // if(temp){
+        //   todoArr = JSON.parse(temp);
+        // }
+
+        // const arr = [1, 'hi', 1.223, { key1: 1, key2: 2 }];
+        // todoArr.push(arr);
+        // console.log(todoArr);
+        //데이터를 배열로 만들어서 잘 들어가는지 체크
+        // 할일목록배열.push({ todoStr: '흰우유 구매', checked: false });
+        // 할일목록배열.push({ todoStr: '검은우유 구매', checked: false });
+        // 할일목록배열.push({ todoStr: '붉은우유 구매', checked: false });
+
+        localStorage.setItem('todoData', JSON.stringify(할일목록배열));
+        console.log(할일목록배열);
+
+        //갱신할 때는 모든 화면을 지우고 다시 만들어주는걸 반복한다.
+        function randerTodo() {
+          console.log('테스트');
+          eleTodoList.innerHTML(''); //다 지운다.
+
+          //html를 공백으로 만들어서 내용을 다 지운다.
+          //이제 만들어준다.
+          //크롬 - F12 - 요소의 html 코드에 createElement가 잘 들어갔는지 체크해준다.
+          //하나 세트를 만든 후에 for문을 돌리면 구조가 잘 보인다.
+
+          //할일목록배열에 foreach(ele)문을 돌려준다.
+          //타이핑 감당이 안되므로 그냥 내용 필기 하면서 내용 이해하는 방향으로 가기로 했다.
+          //어? 어? 어?
+        }
+
+        //---------------------------------
+      }); //document.addEL
+    </script>
+  </body>
+</html>
