@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3주 7일차 수업1 오전</title>
+    <script>
+      //예제 7-2-6.html
+      //예제 7-2-7.html
+      //selected 태그와 currentTarget
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.querySelector('select');
+        const p = document.querySelector('p');
+        console.log(select.value);
+
+        //currentTarget:이벤트가 DOM을 통과할 때 이벤트의 현재 대상을 식별합니다.
+        //selectedIndex : 마지막으로 선택한 요소의 인덱스 번호를 반환한다.
+        //대체 왜 selectedIndex가 안 먹히다가 다시 되는걸까.
+        //변수명을 교재랑 똑같이 하니까 되네
+        select.addEventListener('change', (event) => {
+          //   const options = event.currentTarget.options;
+          //   const index = event.currentTarget.options.selectedIndex;
+          //   console.log(index);
+          //   p.textContent = `선택 : ${options[index].textContent}`;
+
+          //multple 적용
+          const options = event.currentTarget.options;
+          const list = [];
+          for (const option of options) {
+            if (option.selected) {
+              list.push(option.textContent);
+              //push : 배열에 요소 추가, 길이 반환
+            }
+          }
+          p.textContent = `선택 : ${list.join(',')}`;
+          //join : 배열의 모든 요소 연결하여 문자열로, 인자는 구분자.
+        }); //select.addEL
+      }); //document.addEL
+    </script>
+  </head>
+  <body>
+    <div>예제 7-2-6.html</div>
+
+    <select multiple>
+      <option>떡볶이</option>
+      <option>순대</option>
+      <option>오뎅</option>
+      <option>튀김</option>
+    </select>
+    <p>선택 : 떡볶이</p>
+  </body>
+</html>

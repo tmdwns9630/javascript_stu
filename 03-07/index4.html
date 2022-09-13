@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3주 7일차 수업4 / 오전</title>
+    <script>
+      //예제 7-2-11,12.html : 이미지 우클릭 금지.
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const imgs = document.querySelectorAll('img');
+
+        imgs.forEach((img) => {
+          img.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            //기본 이벤트를 막는다.
+          });
+        });
+
+        //링크 막기
+        let status = false;
+        const checkbox = document.querySelector('input');
+        checkbox.addEventListener('change', (event) => {
+          status = event.currentTarget.checked;
+        });
+
+        const link = document.querySelector('a');
+        link.addEventListener('click', (event) => {
+          if (!status) {
+            event.preventDefault();
+          }
+        });
+      }); //document.addEL
+    </script>
+  </head>
+  <body>
+    <img
+      width="200"
+      src="https://www.cnet.com/a/img/resize/1713c9f81d1fab995126873b7323c6a51f700642/hub/2018/08/01/c915c669-30a3-494a-880b-bfc44d8c04e2/spider-man-ps4-preview-glass.jpg?auto=webp&fit=crop&height=1200&width=1200"
+      alt=""
+    /><br />
+    <input type="checkbox" />
+    <span>링크 활성화</span><br />
+    <a href="https://naver.com">네이버</a>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3주 7일차 수업2 / 오전</title>
+    <script>
+      //예제 7-2-8.html : cm 단위를 여러 단위로 변환.
+
+      document.addEventListener('DOMContentLoaded', () => {
+        let 현재값;
+        let 변환상수 = 10;
+
+        const select = document.querySelector('select');
+        const input = document.querySelector('input');
+        const span = document.querySelector('span');
+
+        const 계산 = () => {
+          span.textContent = (현재값 * 변환상수).toFixed(2);
+          //소수점 둘째자리.
+        };
+
+        select.addEventListener('change', (event) => {
+          const options = event.currentTarget.options;
+          const index = event.currentTarget.options.selectedIndex;
+          console.log(typeof options[index].value);
+          변환상수 = Number(options[index].value);
+          계산();
+        });
+
+        input.addEventListener('keyup', (event) => {
+          현재값 = Number(event.currentTarget.value);
+          console.log(현재값);
+          계산();
+        });
+      }); //document.addEL
+    </script>
+  </head>
+  <body>
+    <div>예제 7-2-8.html</div>
+
+    <input type="text" />
+    cm =
+    <span>?</span>
+    <select>
+      <option value="10">mm</option>
+      <option value="0.01">m</option>
+      <option value="0.393701">inch</option>
+    </select>
+  </body>
+</html>

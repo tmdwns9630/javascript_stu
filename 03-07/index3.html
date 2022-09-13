@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3주 7일차 수업3 / 오전</title>
+    <script>
+      //예제 7-2-9.html : 체크박스로 타이머 만들기.
+      //예제 7-2-10.html : 라디오 버튼.
+
+      document.addEventListener('DOMContentLoaded', () => {
+        let [timer, timerid] = [0, 0];
+        const h1 = document.querySelector('h1');
+        const checkbox = document.querySelector('input');
+
+        checkbox.addEventListener('change', (event) => {
+          if (event.currentTarget.checked) {
+            //checked : 체크 상태를 확인하는 속성
+            timerid = setInterval(() => {
+              timer += 1;
+              h1.textContent = `${timer}초`;
+            }, 100);
+          } else {
+            //체크 해제일 때는 동작 안함.
+            clearInterval(timerid);
+          }
+        });
+
+        //---------------------------------------------------------------
+        const output = document.querySelector('#output');
+        const radios = document.querySelectorAll('[name=pet]');
+
+        //모든 라디오 버튼에
+        radios.forEach((radio) => {
+          //이벤트연결
+          radio.addEventListener('change', (event) => {
+            const current = event.currentTarget;
+            if (current.checked) {
+              output.textContent = `좋아하는 애완 동물은 ${current.value}이군요.`;
+            }
+          });
+        });
+      }); //document.addEL
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" />
+    <span>타이머 활성화</span>
+    <h1>T초</h1>
+    <div>--------------------------</div>
+
+    <h3>#좋아하는 애완동물을 선택하세요</h3>
+    <!-- 동일한 name 속성으로 맞춰야 한다. -->
+    <input type="radio" name="pet" value="개" />
+    <span>개</span>
+    <input type="radio" name="pet" value="고양이" />
+    <span>고양이</span>
+    <input type="radio" name="pet" value="햄찌" />
+    <span>햄찌</span>
+    <input type="radio" name="pet" value="땃찌" />
+    <span>땃찌</span>
+    <h3 id="output">문구</h3>
+  </body>
+</html>
