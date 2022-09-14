@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3주 8일차 수업2 / 오후</title>
+    <!-- 랜덤 컬러 픽커 - 스페이스바를 누르면 랜덤으로 배경 화면 색을 다르게 하고
+     색상 코드를 표시한다.-->
+    <!-- 한줄로 처리할 수 있는 방법도 있다고 함. -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const body = document.querySelector('body');
+        const hexCode = document.querySelector('#hexCode');
+        // console.log(hexCode.textContent);
+        // console.log(body.textContent);
+
+        let randomColor;
+
+        // console.log(resultColor);
+        // resultColor.push(3);
+        // resultColor.push(3);
+        // resultColor.push(3);
+        // resultColor.push(3);
+        // resultColor.push(3);
+        // resultColor.push(3);
+
+        document.addEventListener('keyup', (event) => {
+          let resultColor = ['#'];
+          for (let i = 0; i < 6; i++) {
+            randomColor = Math.floor(Math.random() * 16);
+            if (randomColor > 9) {
+              randomColor = randomColor.toString(16);
+            }
+            resultColor.push(randomColor);
+            console.log(`for문 랜덤컬러값 : ${randomColor}`);
+          }
+          console.log(resultColor);
+          const colorString = resultColor.join('');
+
+          if (event.keyCode === 32) {
+            console.log('Manmengmi!');
+            hexCode.textContent = colorString;
+            body.style.backgroundColor = colorString;
+            console.log(`컬러스트링 :${colorString}`);
+          } else {
+            console.log(event);
+          }
+        });
+      }); //document.addEventListener
+    </script>
+  </head>
+  <body style="background-color: wheat">
+    <div>Random Color Picker from CSJ</div>
+    <h1 id="hexCode">HexCode</h1>
+    <div>Press the Spacebar</div>
+  </body>
+</html>

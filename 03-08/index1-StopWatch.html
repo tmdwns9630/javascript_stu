@@ -23,7 +23,7 @@
         console.log('로딩 확인');
         //필요한 이벤트 리스너 : 버튼마다 하나식 => 3개
         console.log();
-        let firstCount = 0;
+        let firstCount = 95;
         let secondCount = 0;
         let thirdCount = 0;
 
@@ -37,31 +37,38 @@
 
         //console.log(firstCount);
 
+        //기능 체크를 위한 시간 설정.
         //firstCount = 54;
-        secondCount = 59;
+        secondCount = 55;
+
+        //스타트 버튼
         btnStart.addEventListener('click', (event) => {
           console.log('스타트 버튼');
           const timerID = setInterval(() => {
-            firstCount++;
+            console.log('.');
             countOne.innerText = firstCount.toString().padStart(2, '0');
             countTwo.innerText = secondCount.toString().padStart(2, '0');
             countThree.innerText = thirdCount.toString().padStart(2, '0');
-            //console.log(firstCount);
+
+            //체크용 콘솔로그
             console.log(
-              `${secondCount.toString().padStart(2, '0')}:${firstCount
+              `${thirdCount.toString().padStart(2, '0')}:${secondCount
                 .toString()
-                .padStart(2, '0')}`,
+                .padStart(2, '0')}:${firstCount.toString().padStart(2, '0')}`,
             );
 
             if (99 <= firstCount) {
-              firstCount = -1;
+              console.log('======-==============================');
+              firstCount = 0;
               secondCount++;
-              if (59 <= secondCount) {
+              if (60 <= secondCount) {
                 secondCount = 0;
                 thirdCount++;
               }
+            } else {
+              firstCount++;
             }
-          }, 50); //setInterval
+          }, 10); //setInterval
           btnPause.addEventListener('click', (event) => {
             console.log('포우즈 버튼');
             clearInterval(timerID);
@@ -83,6 +90,10 @@
       //이제 카운트 속도만 맞춰주면 될 것 같은데
       //setInterval 안에 pause,reset 버튼 넣으니까 한번에 너무 많이 클릭된 거 같아서
       //그걸 스타트버튼 addEL에 넣었음.
+
+      //--> 디버깅 체크 결과, if문에서 퍼스트카운트 = 0이 되고, html에 출력되기 전에 ++1이 되어서 생긴 일이었다.
+      //if문에 else를 걸어 거기서 퍼스트카운트++를 하여 해결되었고
+      //디버깅의 중요함을 배웠다.
     </script>
   </head>
   <body>
