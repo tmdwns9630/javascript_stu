@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- 작전명 미션 임파서블-->
+<html>
+  <head>
+    <title>Todo List</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const eleTodo = document.querySelector('#todo-str'); // TODO 입력창
+        const eleBtnAdd = document.querySelector('#btn-add'); // TODO 등록버튼
+        const eleTodoList = document.querySelector('#todo-list'); // 입력된 TODO 추가할 컨테이너
+
+        const temp = localStorage.getItem('todoArr');
+        let 할일목록배열 = temp ? JSON.parse(temp) : [];
+
+        function saveTodo() {
+          localStorage.setItem('todoArr', JSON.stringify(할일목록배열));
+        }
+        function randerTodo() {
+          // 1. 전체다 지우고
+          eleTodoList.innerHTML = '';
+
+          // 2. 모든 할일목록 그리기
+          할일목록배열.forEach((ele) => {
+            console.log(ele.todoStr);
+            console.log(ele.checked);
+
+            const div = document.createElement('div'); // 부모컨테이너
+            const ckbox = document.createElement('input'); // 체크박스
+            const span = document.createElement('span'); // 할일 문자열 표현
+            const button = document.createElement('button'); // 삭제기능
+
+            ckbox.type = 'checkbox';
+
+            ckbox.checked = ele.checked;
+            if (true === ele.checked) {
+              span.style.textDecoration = 'line-through';
+            } else {
+              span.style.textDecoration = '';
+            }
+
+            ckbox.addEventListener('change', (event) => {
+              if (true == event.currentTarget.checked) {
+                span.style.textDecoration = 'line-through';
+              } else {
+                span.style.textDecoration = '';
+              }
+            });
+
+            span.textContent = ele.todoStr;
+
+            button.textContent = '❌';
+            button.setAttribute('data-ts', ele.ts);
+            // 삭제버튼 클릭 이벤트
+            button.addEventListener('click', (event) => {
+              const ts = event.currentTarget.dataset.ts;
+
+              할일목록배열 = 할일목록배열.filter((value) => {
+                if (String(value.ts) === String(ts)) {
+                  return false;
+                } else {
+                  return true;
+                }
+              });
+              console.log(할일목록배열);
+              saveTodo();
+              randerTodo();
+
+              // console.log(ts);
+              /*
+              const _span =
+                event.currentTarget.parentNode.querySelector("span");
+
+              const tempArr = 할일목록배열.filter((value) => {
+                if (value.todoStr === _span.textContent) {
+                  return false;
+                } else {
+                  return true;
+                }
+              });
+              console.log(tempArr);
+              console.log(_span.textContent);
+              */
+              /*
+              const 삭제할요소 = event.currentTarget.parentNode;
+              eleTodoList.removeChild(삭제할요소);
+              */
+            });
+
+            div.appendChild(ckbox);
+            div.appendChild(span);
+            div.appendChild(button);
+            eleTodoList.appendChild(div);
+          });
+        }
+
+        // 등록버튼 클릭 이벤트
+        eleBtnAdd.addEventListener('click', (event) => {
+          const 할일문자열 = eleTodo.value.trim();
+          if (!할일문자열) return;
+
+          할일목록배열.push({
+            todoStr: 할일문자열,
+            checked: false,
+            ts: Date.now(),
+          });
+          eleTodo.value = '';
+          randerTodo();
+          saveTodo();
+        });
+
+        randerTodo();
+        saveTodo();
+        console.log(할일목록배열);
+
+        // let todoArr = [];
+        // if (temp) {
+        //   todoArr = JSON.parse(temp);
+        // }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <input type="text" id="todo-str" />
+    <button id="btn-add">등록</button>
+    <div id="todo-list">
+      <div data-key="1">
+        <input type="checkbox" />
+        <span>첫번재 할일</span>
+        <button>삭제</button>
+      </div>
+      <div data-key="2">
+        <input type="checkbox" />
+        <span>첫번재 할일</span>
+        <button>삭제</button>
+      </div>
+      <div>
+        <input type="checkbox" />
+        <span>첫번재 할일</span>
+        <button>삭제</button>
+      </div>
+      <div>
+        <input type="checkbox" />
+        <span>첫번재 할일</span>
+        <button>삭제</button>
+      </div>
+    </div>
+  </body>
+</html>

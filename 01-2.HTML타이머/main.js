@@ -76,65 +76,59 @@ for (const data of arr){
 
 // const result = arr.filter((ele) => ele % 2 == 0).map((ele) => ele*2);
 
-
 // console.log(result);
 // //------------------------------
 
-    // setTimeout(() => {
-    //     console.log(`1초 후에 실행됩니다`)
-    // }, 1*1000);
+// setTimeout(() => {
+//     console.log(`1초 후에 실행됩니다`)
+// }, 1*1000);
 
-
-
-    // let count = 0
-    // setInterval(() => {
-    //    console.log(`1초마다 실행됩니다(${count})`)
-    //    count++
-    // }, 1*1000);
-
+// let count = 0
+// setInterval(() => {
+//    console.log(`1초마다 실행됩니다(${count})`)
+//    count++
+// }, 1*1000);
 
 let 시 = 16;
 let 분 = 59;
 let 초 = 51;
 
-
 const timeID = setInterval(() => {
-   //console.log(`${시}:${분}:${초}`) ;
-   console.log(
-    `${시.toString().padStart(2,"0")}:${분.toString().padStart(2,"0")}:${초.toString().padStart(2,"0")}`) ;
-   
-    // document.getElementById("hour").innerText = 시;
-    // document.getElementById("min").innerText = 분;
-    // document.getElementById("sec").innerText = 초;
-    document.querySelector(".hour").innerText = 시;
-    document.querySelector(".min").innerText = 분;
-    document.querySelector(".sec").innerText = 초;
+  //console.log(`${시}:${분}:${초}`) ;
+  console.log(
+    `${시.toString().padStart(2, '0')}:${분.toString().padStart(2, '0')}:${초
+      .toString()
+      .padStart(2, '0')}`,
+  );
 
+  // document.getElementById("hour").innerText = 시;
+  // document.getElementById("min").innerText = 분;
+  // document.getElementById("sec").innerText = 초;
+  document.querySelector('.hour').innerText = 시;
+  document.querySelector('.min').innerText = 분;
+  document.querySelector('.sec').innerText = 초;
 
-   초++;
-   if(60 <= 초){
+  초++;
+  if (60 <= 초) {
     초 = 0;
     분++;
-    if (60 <= 분){
-        분 = 0;
-        시++;
+    if (60 <= 분) {
+      분 = 0;
+      시++;
     }
-   }
+  }
 }, 1000);
 
-
 const redo = setInterval(() => {
-    let qa = confirm('타이머를 종료하시겠습니까?')
-    if(qa=== true){
-        clearInterval(timeID)
-        clearInterval(redo)
-        console.log('타이머 종료')
-    }
-    
+  let qa = confirm('타이머를 종료하시겠습니까?');
+  if (qa === true) {
+    clearInterval(timeID);
+    clearInterval(redo);
+    console.log('타이머 종료');
+  }
 }, 10000);
-
 
 // setTimeout(() => {
 //     console.log('타이머 종료')
-//     clearInterval(timeID) 
+//     clearInterval(timeID)
 //  }, 5000);

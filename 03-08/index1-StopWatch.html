@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3주 8일차 수업1 / 오전</title>
+    <!-- 스톱워치 만들기 -->
+    <style>
+      span {
+        margin: 5px;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+      }
+
+      #timer {
+        font-size: 30px;
+        margin: 20px;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('로딩 확인');
+        //필요한 이벤트 리스너 : 버튼마다 하나식 => 3개
+        console.log();
+        let firstCount = 0;
+        let secondCount = 0;
+        let thirdCount = 0;
+
+        //문서 객체 로드
+        const btnStart = document.querySelector('#startBtn');
+        const btnPause = document.querySelector('#pauseBtn');
+        const btnReset = document.querySelector('#resetBtn');
+        let countOne = document.querySelector('#countOne');
+        let countTwo = document.querySelector('#countTwo');
+        let countThree = document.querySelector('#countThree');
+
+        //console.log(firstCount);
+
+        //firstCount = 54;
+        secondCount = 59;
+        btnStart.addEventListener('click', (event) => {
+          console.log('스타트 버튼');
+          const timerID = setInterval(() => {
+            firstCount++;
+            countOne.innerText = firstCount.toString().padStart(2, '0');
+            countTwo.innerText = secondCount.toString().padStart(2, '0');
+            countThree.innerText = thirdCount.toString().padStart(2, '0');
+            //console.log(firstCount);
+            console.log(
+              `${secondCount.toString().padStart(2, '0')}:${firstCount
+                .toString()
+                .padStart(2, '0')}`,
+            );
+
+            if (99 <= firstCount) {
+              firstCount = -1;
+              secondCount++;
+              if (59 <= secondCount) {
+                secondCount = 0;
+                thirdCount++;
+              }
+            }
+          }, 50); //setInterval
+          btnPause.addEventListener('click', (event) => {
+            console.log('포우즈 버튼');
+            clearInterval(timerID);
+          }); //btnPause.addEventListener
+
+          btnReset.addEventListener('click', (event) => {
+            console.log('리셋 버튼');
+            firstCount = 0;
+            secondCount = 0;
+            countOne.innerText = firstCount.toString().padStart(2, '0');
+            countTwo.innerText = secondCount.toString().padStart(2, '0');
+            clearInterval(timerID);
+          }); // btnReset.addEventListener
+        }); //btnStart.addEventListener
+      }); //document.addEventListener
+
+      //60초 이후에 0초 1초로 가는게 아니라 0초 스킵하고 1초로 넘어가서
+      // firstCount가 99 넘기면 -1로 바뀌는걸로 만듬.
+      //이제 카운트 속도만 맞춰주면 될 것 같은데
+      //setInterval 안에 pause,reset 버튼 넣으니까 한번에 너무 많이 클릭된 거 같아서
+      //그걸 스타트버튼 addEL에 넣었음.
+    </script>
+  </head>
+  <body>
+    <h1>STOP WATCH</h1>
+    <div id="timer">
+      <span id="countThree">00</span><span>:</span><span id="countTwo">00</span
+      ><span>:</span><span id="countOne">00</span>
+    </div>
+    <div>
+      <button id="startBtn">START</button>
+      <button id="pauseBtn">PAUSE</button>
+      <button id="resetBtn">RESET</button>
+    </div>
+  </body>
+</html>
