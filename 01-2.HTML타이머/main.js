@@ -42,7 +42,7 @@ for (const data of arr){
 // });
 
 // //삼항 연산자 사용
-// arr.forEach((ele,idx) => {
+// arr.((ele,idx) => {
 //     idx <3 ? console.log(` 값 ${ele}, 인덱스 : ${idx}`) : null;
 // });
 
